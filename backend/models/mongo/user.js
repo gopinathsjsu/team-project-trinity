@@ -3,39 +3,34 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
     {
-        name:{ type: String},
-        image: {type:String},
-        email: {type:String},
-        password: { type: String},
-        phoneNumber: {type: String},
-        address:{
-            street: {type:String},
-            city: {type:String},
-            state: {type:String},
-            zipCode: {type:String}
+        name: {
+            type: String,
+            required: true,
+            maxlength: 200
         },
-        rewards:{ type: Number},
-        reservations:{type:Array}
+        image: {
+            type: String,
+            maxlength: 1024,
+        },
+        email: {
+            type: String,
+            required: true,
+            maxlength: 200
+        },
+        password: {
+            type: String,
+            required: true,
+            minlength: 8,
+            maxlength: 1024,
+        },
+        phoneNumber: {
+            type: String,
+            minlength: 10,
+            maxlength: 10,
+            default: null
+        },
+        rewards: { type: Number }
     }
 );
-const userModel = mongoose.model('user', userSchema);
-module.exports = userModel;
-
-// - Loyalty [
-// {
-// hotelId: numOfBookings
-// }]
-// Wallet Money (Rewards)
-// Reservations [
-// hotelId
-//       -	checkin
-// - checkout
-// - amenities
-// - reward points used
-// Rooms :[
-// 	Room Type:
-//  	Occupied by qty:
-// ]
-// Total Cost
- 
-// ]
+const User = mongoose.model('User', userSchema);
+module.exports.User = User;

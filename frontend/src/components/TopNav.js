@@ -7,13 +7,13 @@ const TopNav = () => {
             <Container className="navbar-wrapper">
                 <Nav>
                     <Image src="https://img.icons8.com/pastel-glyph/64/000000/warning-triangle.png" alt="logo" />
-                    <Navbar.Brand href="#home">Trinity Hotels</Navbar.Brand>
+                    <Navbar.Brand href="/" ><b>Trinity Hotels</b></Navbar.Brand>
                 </Nav>
 
                 <Nav>
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#features">My Profile</Nav.Link>
-                    <Nav.Link href="#d">Sign In</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/profile/">My Profile</Nav.Link>
+                    <Nav.Link href="/signIn">Sign In</Nav.Link>
                 </Nav>
             </Container>
         </Navbar >

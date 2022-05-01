@@ -3,45 +3,64 @@ const Schema = mongoose.Schema;
 
 const hotelSchema = new Schema(
     {
-        name: { type: String },
-        image: { type: String },
-        email: { type: String },
-        password: { type: String },
-        description: { type: String },
-        phoneNumber: { type: String },
-        rating: { type: Number },
+        name: {
+            type: String,
+            required: true,
+            maxlength: 200
+        },
+        image: {
+            type: String,
+            maxlength: 1024,
+        },
+        email: {
+            type: String,
+            required: true,
+            maxlength: 200
+        },
+        password: {
+            type: String,
+            required: true,
+            minlength: 8,
+            maxlength: 1024,
+        },
+        description: {
+            type: String,
+            maxlength: 255
+        },
+        phoneNumber: {
+            type: String,
+            minlength: 10,
+            maxlength: 10,
+            default: null
+        },
         address: {
             street: { type: String },
             city: { type: String },
             state: { type: String },
             zipCode: { type: String }
         },
-        room: { type: Array },
-        rewards: { type: Number },
-        reservations: { type: Array }
+        hikes: {
+            seasonal: { type: Number, default: 20 },
+            weekend: { type: Number, default: 15 }
+        },
+        amenitites: {
+            breakfast: {
+                type: Number,
+            },
+            gym: {
+                type: Number,
+            },
+            pool: {
+                type: Number,
+            },
+            parking: {
+                type: Number,
+            },
+            meals: {
+                type: Number,
+            }
+        }
     }
 );
-const hotelModel = mongoose.model('user', hotelSchema);
-module.exports = hotelModel;
-
-
-
-// Hotel:
-// id
-// Name
-// Email
-// Phone Number
-// Address
-// - Street
-// - City
-// - State
-// - ZipCode
-// - Image
-// - Description
-// - Room :[
-// 	Type:
-// 	Cost: Base (Weekdays) -> (weekends +5-10%) -> ( holidays +5-15%)
-// 	Max Occupancy:
-// 	Availability:
-// ]
-// Rating 
+const Hotel = mongoose.model('Hotel', hotelSchema);
+module.exports.Hotel = Hotel

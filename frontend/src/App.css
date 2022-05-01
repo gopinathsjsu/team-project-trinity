@@ -1,9 +1,11 @@
 .App {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.315);
-  background: url('https://images8.alphacoders.com/541/thumb-1920-541025.jpg');
+  background: url('https://a.cdn-hotels.com/cos/heroimage/homepage/INDIA.jpg');
+  min-height: 100vh;
   background-size: cover;
   height: 100%;
+  position: relative;
 
 }
 
@@ -17,6 +19,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 
 .App-header {
@@ -51,7 +54,6 @@
 .navbar-nav img {
   background-color: white;
   border-radius: 30px;
-  /* padding: 1px; */
   padding-bottom: 5px;
   width: 50px;
   height: 50px;
@@ -83,25 +85,86 @@
   margin: 100px 100px;
   border-radius: 20px;
   justify-content: space-evenly;
-  color: white;
   background-color: white;
 }
 
 .footer {
   height: 50px;
   width: 100%;
-  background-color: white;
-  /* border-top: 1px solid rgba(73, 67, 67, 0.582); */
-  /* position: sticky; */
+  background-color: rgb(255, 255, 255);
+  box-shadow: 5px 5px 5px black;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
   bottom: 0;
+  position: absolute;
 }
 
 .body-main {
-  height: 100vh;
+  height: 100%;
 }
 
-h3 {
-  color: black;
+h2 {
   text-align: left;
   padding: 10px;
+}
+
+.search-results-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  /* padding: 50px; */
+  margin: 20px 100px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  background-color: white;
+  height: 100%;
+}
+
+.card-wrapper {
+  background-color: white;
+  box-shadow: 1px 1px 20px silver;
+  width: 100%;
+  margin: 15px 15px
+}
+
+.hotel-details-wrapper {
+  text-align: left;
+  padding-left: 50px;
+}
+
+.room-options-wrapper {
+  padding: 50px;
+  text-align: left;
+}
+
+.amenities-wrapper {
+  text-align: left;
+  padding: 50px;
+
+}
+
+.room-grid {
+  display: flex;
+}
+
+.room-grid-card {
+  margin: 5px 10px;
+}
+
+.hotelName {
+  position: absolute;
+  top: 300px;
+  left: 50px;
+  color: white;
+  font-size: 50px;
+  text-shadow: 7px 7px 10px black;
+}
+
+.room-image-wrapper {
+
+  background-color: green;
+  object-fit: contain;
+  overflow: hidden;
 }
