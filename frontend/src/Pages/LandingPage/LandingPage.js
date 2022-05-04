@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
-import TopNav from '../../components/TopNav';
-import Footer from '../../components/Footer';
+import React, { useEffect, useState } from 'react'
 import SearchPanel from './SearchPanel';
 import { BASE_API_URL } from '../../utils/constants';
 import SearchResults from './SearchResults';
 import axios from 'axios';
+import moment from 'moment'
+
 
 const LandingPage = () => {
 
     const [location, setLocation] = useState()
-    const [checkInDate, setCheckInDate] = useState()
+    const [checkInDate, setCheckInDate] = useState(moment(new Date()).format("YYYY-MM-DD"))
     const [checkOutDate, setCheckOutDate] = useState()
     const [numberOfGuests, setNmberOfGuests] = useState()
     const [searchResultsData, setSearchResultsData] = useState()
+
+
 
     const handleLocationChange = (e) => {
         console.log("Location ", e.target.value)
@@ -32,15 +34,22 @@ const LandingPage = () => {
         setNmberOfGuests(e.target.value)
     }
 
-    const onButtonClickHandler = async () => {
-        console.log("searching...")
+    const onButtonClickHandler = async (e) => {
+        console.log("Searching...")
+
+
+        if (!checkInDate || !checkInDate || !location || !numberOfGuests) {
+            console.log("Please fill in all Details ")
+            return
+        }
+        e.preventDefault();
         try {
             const response = await axios.get(`${BASE_API_URL}/hotelsByLocation/${location}`)
             console.log("result", response)
             setSearchResultsData(response)
 
         } catch (err) {
-            alert("No Input")
+            console.log("Error Fetching Details", err)
         }
     }
 
@@ -61,7 +70,8 @@ const LandingPage = () => {
             <SearchResults
                 searchResultsData={searchResultsData}
                 checkInDate={checkInDate}
-                checkOutDate={checkOutDate} />
+                checkOutDate={checkOutDate}
+                numberOfGuests={numberOfGuests} />
         </div>
 
     )

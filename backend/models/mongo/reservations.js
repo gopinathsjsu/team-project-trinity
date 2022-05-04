@@ -13,9 +13,8 @@ const reservationScehma = new Schema(
             ref: "Hotel",
         },
         rooms: [{
-            type: mongoose.Schema.Types.ObjectId,
-            numberOfRooms: { type: Number },
-            ref: "Room",
+            roomId: { type: mongoose.Schema.Types.ObjectId, ref: "Room" },
+            numberOfRooms: { type: Number }
         }],
         numberOfGuests: { type: Number },
         totalPrice: { type: Number },

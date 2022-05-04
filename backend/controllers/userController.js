@@ -11,7 +11,7 @@ exports.create = (req, res) => {
         name: req.body.name,
         phoneNumber: req.body.phoneNumber,
         address: req.body.address,
-        image: req.body.image,
+        image: req.body.image
     })
 
 

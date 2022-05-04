@@ -1,12 +1,26 @@
 .App {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.315);
-  background: url('https://a.cdn-hotels.com/cos/heroimage/homepage/INDIA.jpg');
   min-height: 100vh;
-  background-size: cover;
   height: 100%;
   position: relative;
+}
 
+.background {
+  background: url('https://a.cdn-hotels.com/cos/heroimage/homepage/INDIA.jpg');
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.164);
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }
 
 .App-logo {
@@ -137,20 +151,21 @@ h2 {
 .room-options-wrapper {
   padding: 50px;
   text-align: left;
-}
-
-.amenities-wrapper {
-  text-align: left;
-  padding: 50px;
-
+  margin: 50px 50px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.658);
 }
 
 .room-grid {
   display: flex;
+  padding-top: 30px;
 }
 
 .room-grid-card {
   margin: 5px 10px;
+  border-radius: 10px;
+  width: 30%;
+  height: 500px;
 }
 
 .hotelName {
@@ -162,9 +177,58 @@ h2 {
   text-shadow: 7px 7px 10px black;
 }
 
-.room-image-wrapper {
+.room-card-image-wrapper {
+  height: 50%;
+}
 
-  background-color: green;
-  object-fit: contain;
-  overflow: hidden;
+.buttons-wrapper {
+  text-align: center;
+
+}
+
+.buttons-wrapper * {
+  margin: 10px
+}
+
+
+.summary-details-wrapper {
+  text-align: left;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.658);
+  margin: 50px 25px;
+  width: 70%
+}
+
+.bill-wrapper {
+  text-align: left;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.658);
+  margin: 50px 25px;
+  width: 30%;
+  height: fit-content;
+}
+
+.bill-wrapper * {
+  margin-bottom: 5px;
+}
+
+.summary-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.amenities-and-price-summary-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.hotel-summary-info-wrapper {
+  display: flex
+}
+
+.hotel-summary-info-wrapper * {
+  margin-right: 10px;
+  margin-bottom: 10px;
 }

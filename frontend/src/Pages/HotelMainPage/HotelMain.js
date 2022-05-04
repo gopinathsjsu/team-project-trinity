@@ -1,60 +1,62 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Form, Modal } from 'react-bootstrap'
-import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
 import { BASE_API_URL } from '../../utils/constants';
+import { useLocation } from 'react-router-dom'
+import RoomCard from './RoomCard'
 
 const HotelMain = () => {
 
-    const { id } = useParams();
-    const [hotelData, setHotelData] = useState()
-    const [show, setShow] = useState(false);
-    const [breakfast, setBreakfast] = useState(false)
-    const [parking, setParking] = useState(false)
-    const [gym, setGym] = useState(false)
-    const [swimmingPool, setSwimmingPool] = useState(false)
-    const [allMeals, setAllMeals] = useState(false)
-    const [selectedRoom, setSelectedRoom] = useState()
+    const [roomsData, setRoomsData] = useState()
+    const [selectedRooms, setSelectedRooms] = useState({})
 
-    const handleClose = () => setShow(false);
+    const location = useLocation()
+    const payload = location.state.payload
+    const { _id, name, description, image, phoneNumber, address } = location.state.payload.hotel
 
-    const handleShow = (room) => {
-        setShow(true);
-        setSelectedRoom(room)
+
+    console.log(location.state.payload)
+    const fetchRoomDetails = async () => {
+        const hotelId = _id
+        const response = await axios.get(`${BASE_API_URL}/rooms/${hotelId}`)
+        console.log(response.data)
+        setRoomsData(response.data)
     }
 
-
-    const fetchHotelDetails = async () => {
-        const response = await axios.get(`${BASE_API_URL}/hotels/${id}`)
-        console.log(response.data)
-        setHotelData(response.data)
+    const handleClearSelection = () => {
+        setSelectedRooms({});
     }
 
     useEffect(() => {
-        fetchHotelDetails()
+        fetchRoomDetails()
     }, [])
 
     return (
         <div className='hotel-main-wrapper'>
             <div className="top-flex">
                 <Card>
-                    <Card.Img variant="top" style={{ transform: "scale(1)", height: "400px", objectFit: "cover" }} src={hotelData?.image} />
+                    <Card.Img variant="top" style={{ transform: "scale(1)", height: "400px", objectFit: "cover" }} src={image} />
                     <div className='hotelName'>
-                        {hotelData?.name}
+                        {name}
                     </div>
                     <div className='hotel-details-wrapper'>
                         <Card.Body>
                             <Card.Subtitle>
                                 <h3>
-                                    {hotelData?.address.street} ,  {hotelData?.address.city} ,{hotelData?.address.state} , {hotelData?.address.zipCode}
+                                    {address.street},  {address.city}, {address.state} - {address.zipCode}
                                 </h3>
                             </Card.Subtitle>
+                            <br />
                             <Card.Subtitle>
-                                {hotelData?.phoneNumber}
+                                <h5>
+                                    {phoneNumber}
+                                </h5>
                             </Card.Subtitle>
+                            <br />
+
                             <Card.Text>
-                                <i>{hotelData?.description}</i>
+                                <i>{description}</i>
                             </Card.Text>
                         </Card.Body>
                     </div>
@@ -62,92 +64,31 @@ const HotelMain = () => {
                 </Card >
             </div >
             <div className="room-options-wrapper">
-                <h3> Choose a room</h3>
+                <h3> Select Your Room</h3>
                 <div className='room-grid'>
                     {
-                        hotelData?.rooms?.map((room) => {
+                        roomsData?.map((room) => {
                             return (
-                                <Card className="room-grid-card" >
-                                    <div className='room-image-wrapper'>
-                                        <Card.Img src={room.image} style={{ width: "400px", height: "250px", objectFit: "cover" }} />
-                                    </div>
-                                    <Card.Body>
-                                        <Card.Title>{room.type}</Card.Title>
-                                        <Card.Text>
-                                            Max Occupancy: {room.maxOccupancy} People
-                                        </Card.Text>
-                                        <Card.Text>
-                                            Cost: ${room.cost}
-                                        </Card.Text>
-                                        <Button variant="primary" onClick={() => handleShow(room)}>Reserve</Button>
-                                    </Card.Body>
-                                </Card>
+                                <RoomCard
+                                    selectedRooms={selectedRooms}
+                                    room={room}
+                                ></RoomCard>
                             )
                         })
                     }
                 </div>
-                <div className="amenities-wrapper">
-                    <Modal
-                        show={show}
-                        onHide={handleClose}
-                        backdrop="static"
-                        keyboard={false}
-                    >
-                        <Modal.Header closeButton>
-                            <Modal.Title>Select Amenities</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form>
-                                <div key={`default-checkbox`} className="mb-3">
-                                    <Form.Check
-                                        type={'checkbox'}
-                                        id={'default-checkbox'}
-                                        label={'Daily Continental Breakfast +   $30'}
-                                        onChange={() => setBreakfast(!breakfast)}
-
-                                    />
-                                    <Form.Check
-                                        type={'checkbox'}
-                                        id={'default-checkbox'}
-                                        label={'Access to fitness room   +   $45'}
-                                        onChange={() => setGym(!gym)}
-
-                                    />
-                                    <Form.Check
-                                        type={'checkbox'}
-                                        id={'default-checkbox'}
-                                        label={'Daily Parking +   $40'}
-                                        onChange={() => setParking(!parking)}
-
-                                    />
-                                    <Form.Check
-                                        type={'checkbox'}
-                                        id={'default-checkbox'}
-                                        label={'Access to Swimming Pool/Jacuzzi Pool +   $30 '}
-                                        onChange={() => setSwimmingPool(!swimmingPool)}
-
-                                    />
-                                    <Form.Check
-                                        type={'checkbox'}
-                                        id={'default-checkbox'}
-                                        label={'All meals included (Breakfast, Lunch, Dinner) +   $65 '}
-                                        onChange={() => setAllMeals(!allMeals)}
-                                    />
-
-                                </div>
-                            </Form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                Close
-                            </Button>
-                            <Link to={`/summary/`}><Button variant="primary">Proceed</Button></Link>
-                        </Modal.Footer>
-                    </Modal>
-
+                <div className="buttons-wrapper" >
+                    <Link to="/summary" state={{ payload, selectedRooms }}><Button size="lg"
+                        onClick={() => console.log("Selected rooms so far", selectedRooms)}>
+                        Proceed
+                    </Button></Link>
+                    <Button size="lg" variant='danger'
+                        onClick={handleClearSelection}>
+                        Clear Selection
+                    </Button>
                 </div>
+
             </div>
-            {/* <div className="pricing-wrapper"> </div> */}
         </div >
 
     )

@@ -2,7 +2,10 @@ import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const HotelCard = ({ id, name, description, image, phoneNumber, rooms, rating, address }) => {
+const HotelCard = (props) => {
+
+    const { _id, name, description, image, phoneNumber, address } = props.hotel
+    console.log(props.hotel)
     return (
         <Card className="card-wrapper">
             <Card.Body style={{ display: "flex", padding: "0px" }}>
@@ -14,13 +17,12 @@ const HotelCard = ({ id, name, description, image, phoneNumber, rooms, rating, a
                     <Card.Text>{phoneNumber}</Card.Text>
                     <Card.Text>{description}</Card.Text>
                     <br />
-                    <Card.Text>Rating : {rating}</Card.Text>
 
                 </div>
                 <div style={{ width: "20%", fontSize: "24px", display: "flex", flexDirection: "column", justifyContent: "space-evenly", }}>
-                    <b>Starting $200/night</b>
-                    <Link to={`/hotels/${id}`}>
-                        <Button size="lg" variant="primary">Book Now</Button>
+
+                    <Link to={`/hotels/${_id}`} state={{ payload: props }}>
+                        <Button size="lg" variant="primary" >Book Now</Button>
                     </Link>
                 </div>
             </Card.Body>

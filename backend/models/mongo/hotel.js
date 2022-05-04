@@ -25,7 +25,7 @@ const hotelSchema = new Schema(
         },
         description: {
             type: String,
-            maxlength: 255
+            maxlength: 1024
         },
         phoneNumber: {
             type: String,

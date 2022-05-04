@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import HotelCard from './HotelCard'
 
-const SearchResults = ({ searchResultsData }) => {
+const SearchResults = ({ searchResultsData, checkInDate, checkOutDate, numberOfGuests }) => {
 
 
     return (
@@ -14,14 +14,16 @@ const SearchResults = ({ searchResultsData }) => {
 
                         <HotelCard
                             key={hotel._id}
-                            id={hotel._id}
-                            name={hotel.name}
-                            description={hotel.description}
-                            image={hotel.image}
-                            rating={hotel.rating}
-                            phoneNumber={hotel.phoneNumber}
-                            rooms={hotel.rooms}
-                            address={hotel.address}
+                            hotel={hotel}
+                            // id={hotel._id}
+                            // name={hotel.name}
+                            // description={hotel.description}
+                            // image={hotel.image}
+                            // phoneNumber={hotel.phoneNumber}
+                            // address={hotel.address}
+                            checkInDate={checkInDate}
+                            checkOutDate={checkOutDate}
+                            numberOfGuests={numberOfGuests}
                         >
                         </HotelCard>
                     )
