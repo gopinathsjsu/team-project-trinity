@@ -1,9 +1,9 @@
 module.exports = app => {
     const user = require("../controllers/userController");
 
-    // Create a new hotel
+    // Create a new user
     app.post("/users", user.create);
 
-    //Retrieve all hotels
+    //Retrieve all users
     app.get("/users", user.findAll)
 }
