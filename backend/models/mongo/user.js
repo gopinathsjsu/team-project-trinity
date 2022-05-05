@@ -8,10 +8,6 @@ const userSchema = new Schema(
             required: true,
             maxlength: 200
         },
-        image: {
-            type: String,
-            maxlength: 1024,
-        },
         email: {
             type: String,
             required: true,

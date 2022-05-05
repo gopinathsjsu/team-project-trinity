@@ -34,18 +34,68 @@ exports.getReservation = (req, res) =>{
 
 exports.editReservations =(req, res) =>{
     Reservation.findByIdAndUpdate({id:req.params.id},req.body)
-    .then(()=>{
-    Reservation.findOne({id:req.params.id})
+    // .then(()=>{
+    // Reservation.findOne({id:req.params.id})
     .then( reservation =>{
         res.send(reservation);
     });
-});
+// });
 }
 
 exports.cancelReservation =(req, res) =>{
     Reservation.findByIdAndRemove({id:req.params.id})
     .then(reservation =>{
         res.send(reservation);
-    });
-    Reservation.userI
+    })
+    .catch(err => {
+        res.status(500).send({
+        message:
+            err.message || "Error occured while getting required reservation"
+    })
+});
+    // Reservation.userI
+}
+
+exports.addReservation=(req,res)=>{
+
+
+    if (!req.body) {
+        res.status(400).send({ message: "Invalid request body passed!" })
+    }
+
+    const reservation = new Reservation({
+        userId:req.body.userId,
+        reservationStatus:req.body.reservationStatus,
+        hotelId:req.body.hotelId,
+        rooms:req.body.rooms ,
+        numberOfGuests:req.body.numberOfGuests,
+        totalPrice:req.body.totalPrice,
+        rewardsUsed:req.body.rewardsUsed,
+        checkInDate: req.body.checkInDate,
+        checkOutDate: req.body.checkOutDate,
+        amenities: {
+            breakfast: req.body.breakfast ,
+            gym: req.body.gym,
+            pool:req.body.pool,
+            parking:req.body.parking,
+            meals:req.body.meals
+        }
+    })
+
+
+    reservation
+        .save()
+        .then(data => {
+            console.log("Created new reservatiom:", data)
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while creating the reservation."
+            });
+        });
+
+
+
 }
