@@ -232,3 +232,66 @@ h2 {
   margin-right: 10px;
   margin-bottom: 10px;
 }
+
+
+
+/* LOGIN SIGNUP */
+
+
+.form-rest-signup button,
+.form-user-signup button,
+.detail button,
+.form-user-signin button,
+.form-rest-signin button {
+  width: 80%;
+  height: 40px;
+  border-radius: 50px;
+  outline: none;
+  border: 0px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.detail button {
+  width: 30%;
+}
+
+.cover-user {
+  padding: 80px 30px;
+  display: flex;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form-rest-signup,
+.form-user-signup,
+.form-user-signin,
+.form-rest-signin {
+  background: rgba(0, 0, 0, 0.466);
+  color: white;
+  width: 30%;
+  padding: 30px;
+  margin-left: auto;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #06c167;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.form-rest-signup input,
+.form-user-signup input,
+.form-user-signin input,
+.form-rest-signin input {
+  padding-left: 10px;
+  width: 95%;
+  height: 50px;
+  font-size: 16px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}

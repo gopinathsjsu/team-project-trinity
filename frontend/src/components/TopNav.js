@@ -12,7 +12,7 @@ const TopNav = () => {
 
                 <Nav>
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/profile/">My Profile</Nav.Link>
+                    <Nav.Link href="/profile/">My Reservations</Nav.Link>
                     <Nav.Link href="/signIn">Sign In</Nav.Link>
                 </Nav>
             </Container>
