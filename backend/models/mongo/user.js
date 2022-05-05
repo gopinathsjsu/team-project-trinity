@@ -29,7 +29,16 @@ const userSchema = new Schema(
             maxlength: 10,
             default: null
         },
-        rewards: { type: Number }
+        address: {
+            street: { type: String },
+            city: { type: String },
+            state: { type: String },
+            zipCode: { type: String }
+        },
+        rewards: {
+            type: Number,
+            default: 0
+        }
     }
 );
 const User = mongoose.model('User', userSchema);

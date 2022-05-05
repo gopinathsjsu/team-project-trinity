@@ -7,6 +7,7 @@ import LandingPage from './Pages/LandingPage/LandingPage'
 import HotelMain from './Pages/HotelMainPage/HotelMain';
 import TopNav from './components/TopNav';
 import Footer from './components/Footer';
+import Summary from './Pages/PaymentPage/Summary'
 import login from './Components/login';
 import Signup from './Components/signup';
 
@@ -14,13 +15,17 @@ function App() {
   return (
 
     <div className="App">
-      <TopNav />
+      <div className='background'></div>
+      <div className='overlay'></div>
 
+      <TopNav />
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />}>
           </Route>
           <Route path={`/hotels/:id`} element={<HotelMain />}>
+          </Route>
+          <Route path={`/summary`} element={<Summary />}>
           </Route>
 
           <Route path={'/login'} element = {<login />}>
@@ -28,9 +33,7 @@ function App() {
 
           <Route path={'/signup'} element={<Signup />}>
           </Route>
-
         </Routes>
-
       </Router>
       <Footer />
     </div>
