@@ -2,21 +2,21 @@ const { Reservation } = require("../models/mongo/reservations")
 const express = require('express')
 const router = express.Router();
 
-exports.getReservationAll = (req, res) =>{
+exports.getReservationAll = (req, res) => {
     Reservation.find()
-    .then(data => {
-        console.log("All the reservations of user:", data)
-        res.send(data);
-    })
-    .catch(err => {
-        res.status(500).send({
-            message:
-                err.message || "Error Occured while fetching reservations"
+        .then(data => {
+            console.log("All the reservations of user:", data)
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Error Occured while fetching reservations"
+            });
         });
-    });
 };
 
-exports.getReservation = (req, res) =>{
+exports.getReservation = (req, res) => {
     const id = req.params.id;
 
     Reservation.findById(id)
@@ -26,37 +26,37 @@ exports.getReservation = (req, res) =>{
         })
         .catch(err => {
             res.status(500).send({
-            message:
-                err.message || "Error occured while getting required reservation"
+                message:
+                    err.message || "Error occured while getting required reservation"
+            });
         });
-    });
 };
 
-exports.editReservations =(req, res) =>{
-    Reservation.findByIdAndUpdate({id:req.params.id},req.body)
-    // .then(()=>{
-    // Reservation.findOne({id:req.params.id})
-    .then( reservation =>{
-        res.send(reservation);
-    });
-// });
+exports.editReservation = (req, res) => {
+    Reservation.findByIdAndUpdate({ id: req.params.id }, req.body)
+        // .then(()=>{
+        // Reservation.findOne({id:req.params.id})
+        .then(reservation => {
+            res.send(reservation);
+        });
+    // });
 }
 
-exports.cancelReservation =(req, res) =>{
-    Reservation.findByIdAndRemove({id:req.params.id})
-    .then(reservation =>{
-        res.send(reservation);
-    })
-    .catch(err => {
-        res.status(500).send({
-        message:
-            err.message || "Error occured while getting required reservation"
-    })
-});
+exports.cancelReservation = (req, res) => {
+    Reservation.findByIdAndRemove({ id: req.params.id })
+        .then(reservation => {
+            res.send(reservation);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Error occured while getting required reservation"
+            })
+        });
     // Reservation.userI
 }
 
-exports.addReservation=(req,res)=>{
+exports.addReservation = (req, res) => {
 
 
     if (!req.body) {
@@ -64,16 +64,16 @@ exports.addReservation=(req,res)=>{
     }
 
     const reservation = new Reservation({
-        userId:req.body.userId,
-        reservationStatus:req.body.reservationStatus,
-        hotelId:req.body.hotelId,
-        rooms:req.body.rooms ,
-        numberOfGuests:req.body.numberOfGuests,
-        totalPrice:req.body.totalPrice,
-        rewardsUsed:req.body.rewardsUsed,
+        userId: req.body.userId,
+        reservationStatus: req.body.reservationStatus,
+        hotelId: req.body.hotelId,
+        rooms: req.body.rooms,
+        numberOfGuests: req.body.numberOfGuests,
+        totalPrice: req.body.totalPrice,
+        rewardsUsed: req.body.rewardsUsed,
         checkInDate: req.body.checkInDate,
         checkOutDate: req.body.checkOutDate,
-        amenities:req.body.amenities
+        amenities: req.body.amenities
     })
 
 

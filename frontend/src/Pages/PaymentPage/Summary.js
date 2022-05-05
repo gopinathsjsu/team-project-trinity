@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Accordion, Button, Form } from 'react-bootstrap'
 import { useLocation } from 'react-router'
+import { BASE_API_URL } from '../../utils/constants'
+import axios from 'axios'
 
 const Summary = () => {
     const [breakfast, setBreakfast] = useState(false)
@@ -21,6 +23,11 @@ const Summary = () => {
     const [rewards, setRewards] = useState(false)
 
     const onBookingHandler = async () => {
+
+        // const res = await axios.post(`${BASE_API_URL}/reservations`, {
+        //     hotelId:
+        // } )
+        console.log("Hotel Id", payload.hotel._id)
         console.log("Reservation Creted!")
     }
 
