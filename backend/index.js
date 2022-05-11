@@ -1,14 +1,14 @@
-const config = require("config");
+//const config = require("config");
 require("./db/Mongo");
 const cors = require("cors");
 const express = require('express');
 const app = express();
 
 
-if (!config.get("jwtPrivateKey")) {
-    console.log("JWTPrivateKey not set");
-    process.exit(1);
-}
+// if (!config.get("jwtPrivateKey")) {
+//     console.log("JWTPrivateKey not set");
+//     process.exit(1);
+// }
 
 
 app.use(cors());
