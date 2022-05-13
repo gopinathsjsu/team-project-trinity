@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
 import axios from "axios";
 import { Navigate, Link } from "react-router-dom";
-import backend from "/Users/manishmapakshi/202/team-project-trinity/frontend/src/config.js";
+import backend from './config.js';
 
 class Login extends Component {
   constructor(props) {
