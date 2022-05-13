@@ -2,6 +2,9 @@ const { Reservation } = require("../models/mongo/reservations")
 const express = require('express')
 const router = express.Router();
 
+
+
+
 exports.getReservationAll = (req, res) => {
     Reservation.find()
         .then(data => {
@@ -15,6 +18,39 @@ exports.getReservationAll = (req, res) => {
             });
         });
 };
+
+
+
+exports.getReservationForCustomer =(req,res)=>{
+    Reservation.find(req.params.userId)
+    .then(data=>{
+        console.log("Reservation for customer")
+        res.send(data)
+    })
+    .catch(err=>{
+        res.status(500).send({
+            message:
+            err.message || "Error occured while fetching the resources"
+        });
+    });
+};
+
+
+exports.getReservationByHotel = (req,res)=>{
+    Reservation.find(req.params.hotelId)
+    .then(data=>{
+        console.log("Reservation for customer")
+        res.send(data)
+    })
+    .catch(err=>{
+        res.status(500).send({
+            message:
+            err.message || "Error occured while fetching the resources"
+        });
+    });
+};
+
+
 
 exports.getReservation = (req, res) => {
     const id = req.params.id;
@@ -43,6 +79,12 @@ exports.editReservation = (req, res) => {
     // });
 }
 
+
+
+
+
+
+
 exports.cancelReservation = (req, res) => {
     Reservation.findByIdAndRemove({ id: req.params.id })
         .then(reservation => {
@@ -56,6 +98,22 @@ exports.cancelReservation = (req, res) => {
         });
     // Reservation.userI
 }
+
+
+exports.finOne =(req,res)=> {
+    Reservation.find(req.body.date)=>{
+
+    }
+}
+
+
+
+
+
+
+
+
+
 
 exports.addReservation = (req, res) => {
 
@@ -76,6 +134,20 @@ exports.addReservation = (req, res) => {
         checkOutDate: req.body.checkOutDate,
         amenities: req.body.amenities
     })
+
+     function CompareDate(a,b,c) {
+         
+        var dateOne = new Date(2012, 00, 25); //Year, Month, Date
+        var dateTwo = new Date(2011, 00, 25); //Year, Month, Date
+        if (dateOne > dateTwo) {
+             alert("Date One is greather then Date Two.");
+         }
+            else 
+            {
+             alert("Date Two is greather then Date One.");
+         }
+     };
+
 
 
     reservation

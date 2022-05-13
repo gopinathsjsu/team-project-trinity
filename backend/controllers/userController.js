@@ -30,6 +30,22 @@ exports.create = (req, res) => {
 
 }
 
+exports.findOne = (req,res)=>{
+    const id = req.params.id;
+
+    User.findById(id)
+        .then(data => {
+            console.log("User Data", data)
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while fetching hotel data."
+            });
+        });
+}
+
 exports.findAll = (req, res) => {
 
     User.find()

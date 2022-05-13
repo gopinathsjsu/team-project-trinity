@@ -1,4 +1,4 @@
-const { Hotel } = require("../models/mongo/hotel")
+const { Hotel } = require("../models/mongo/hotel.js")
 const express = require('express')
 const router = express.Router();
 

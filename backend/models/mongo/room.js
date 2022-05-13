@@ -14,7 +14,8 @@ const roomSchema = new Schema(
         image: { type: String },
         price: { type: Number },
         maxOccupancy: { type: Number },
-        numberOfRooms: { type: Number }
+        numberOfRooms: { type: Number },
+        reservationsDates: {type:Date},
     }
 );
 const Room = mongoose.model('Room', roomSchema);
