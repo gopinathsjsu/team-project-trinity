@@ -11,10 +11,10 @@ module.exports = app => {
 
 
     // get all reservations for a hotel
-    app.get("/reservations/hotel/:id",)
+    app.get("/reservations/hotel/:id",reservations.getReservationByHotel)
 
     // get all reservations for a user
-    app.get("/reservations/user/:id",)
+    app.get("/reservations/user/:id",reservations.getReservationForUser)
 
 
 

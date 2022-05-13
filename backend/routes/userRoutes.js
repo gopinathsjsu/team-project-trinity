@@ -5,5 +5,7 @@ module.exports = app => {
     app.post("/users", user.create);
 
     //Retrieve all users
-    app.get("/users", user.findAll)
+    app.get("/users", user.findAll);
+
+    
 }

@@ -5,7 +5,7 @@ import HotelMain from './Pages/HotelMainPage/HotelMain';
 import TopNav from './components/TopNav';
 import Footer from './components/Footer';
 import Summary from './Pages/PaymentPage/Summary'
-import SignUp from './Pages/LoginSignup/SignUp'
+import SignUp from './Pages/LoginSignup/Signup'
 
 function App() {
   return (
