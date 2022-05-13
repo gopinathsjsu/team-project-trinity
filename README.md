@@ -1,4 +1,4 @@
-# TEAM PROJECT - Trinity
+# TEAM PROJECT - TRINITY
 
 ## Team Members
 Aaron Maurice Quadros
