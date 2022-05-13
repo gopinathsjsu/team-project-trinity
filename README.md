@@ -28,7 +28,7 @@ Saturdays 2:00pm-4:00pm
 
 ## Architecture Diagram
 
-![Blank diagram](https://user-images.githubusercontent.com/89826948/168254167-8a436a6d-1b6e-440d-9f26-8230b0d4398d.jpeg)
+<img width="702" alt="Screen Shot 2022-05-13 at 2 28 14 AM" src="https://user-images.githubusercontent.com/89826948/168254720-0a755aa2-c98f-4070-8ee0-275e09f89c19.png">
  
 ## TechStack
 HTML5, CSS, React JS, Node JS
