@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Col } from "reactstrap";
 import axios from "axios";
-import "/Users/manishmapakshi/202/team-project-trinity/frontend/src/Pages/LoginSignup/loginStyle.css";
+import "./loginStyle.css";
 import { Link, Navigate } from "react-router-dom";
-import backend from "/Users/manishmapakshi/202/team-project-trinity/frontend/src/config.js";
+import backend from './config.js';
 class SignUp extends Component {
   constructor(props) {
     super(props);
