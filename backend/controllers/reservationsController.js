@@ -32,6 +32,7 @@ exports.getReservation = (req, res) => {
         });
 };
 
+
 exports.editReservation = (req, res) => {
     Reservation.findByIdAndUpdate({ id: req.params.id }, req.body)
         // .then(()=>{
