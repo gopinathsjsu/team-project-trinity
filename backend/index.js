@@ -4,6 +4,8 @@ const cors = require("cors");
 const express = require('express')
 const app = express()
 
+const User = require("./models/mongo/user");
+
 
 if (!config.get("jwtPrivateKey")) {
     console.log("JWTPrivateKey not set");
@@ -35,8 +37,9 @@ app.post("/signup", async function (req, res) {
       email: req.body.email,
       password: req.body.password,
       address: req.body.address,
+      rewards: 0,
     };
-    new user(newUser).save((error, data) => {
+    new User(newUser).save((error, data) => {
       if (error) {
         res.status(500).end("Error Occured");
       } else {
@@ -48,7 +51,7 @@ app.post("/signup", async function (req, res) {
   });
 
   app.post("/login", async function (req, res) {
-    user.findOne({ email: req.body.email }, (error, user) => {
+    User.findOne({ email: req.body.email }, (error, user) => {
       if (error) {
         res.status(500).end("User Not Found");
       }
@@ -72,6 +75,7 @@ app.post("/signup", async function (req, res) {
       }
     });
   });
+
 
 const port = config.get("port");
 app.listen(port, () => console.log(`Listening to port ${port}...`));

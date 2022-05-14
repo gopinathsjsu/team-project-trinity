@@ -1,7 +1,7 @@
 module.exports = app => {
     const reservations = require("../controllers/reservationsController");
     // Create a new reservation
-    app.post("/reservations", reservations.addReservation);
+    app.post("/reservations", reservations.createReservation);
 
     //Get all reservations for user
     app.get("/reservations", reservations.getReservationAll);
@@ -10,11 +10,16 @@ module.exports = app => {
     // app.get("/reservations/:id", reservations.getReservation);
 
 
+    // get all reservations for a user
+    app.get("/reservations/user/:id",reservations.getReservationForUser)
+
+
     // get all reservations for a hotel
     app.get("/reservations/hotel/:id",reservations.getReservationByHotel)
 
-    // get all reservations for a user
-    app.get("/reservations/user/:id",reservations.getReservationForUser)
+
+
+    app.get("/reservations/:id",reservations.getReservationById);
 
 
 

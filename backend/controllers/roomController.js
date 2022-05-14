@@ -1,9 +1,10 @@
 const { Room } = require("../models/mongo/room")
 const express = require('express');
 const { Reservation } = require("../models/mongo/reservations");
+const { Hotel } = require("../models/mongo/hotel");
 const router = express.Router();
 
-exports.create = (req, res) => {
+exports.createRoom = (req, res) => {
     if (!req.body) {
         res.status(400).send({ message: "Invalid request body passed!" })
     }
@@ -66,7 +67,10 @@ exports.findByHotelId = (req, res) => {
     })
 }
 
-exports.checkValidDates = (req, res) =>{
 
+
+exports.getAmenities=(req,res) =>{
+    
 }
+
 

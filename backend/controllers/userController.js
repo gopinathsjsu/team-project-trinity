@@ -2,7 +2,7 @@ const { User } = require("../models/mongo/user")
 const express = require('express')
 const router = express.Router();
 
-exports.create = (req, res) => {
+exports.createUser = (req, res) => {
     if (!req.body) {
         res.status(400).send({ message: "Invalid request body passed!" })
     }

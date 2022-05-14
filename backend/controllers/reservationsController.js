@@ -3,6 +3,38 @@ const express = require('express');
 const { Room } = require("../models/mongo/room");
 const router = express.Router();
 
+exports.createReservation = (req, res) => {
+    if (!req.body) {
+        res.status(400).send({ message: "Invalid request body passed!" })
+    }
+
+    const hotel = new Hotel({
+        email: req.body.email,
+        password: req.body.password,
+        name: req.body.name,
+        description: req.body.description,
+        phoneNumber: req.body.phoneNumber,
+        address: req.body.address,
+        image: req.body.image,
+        hikes: req.body.hikes,
+        amenities: req.body.amenities
+    })
+
+    hotel
+        .save()
+        .then(data => {
+            console.log("Created hotel with details:", data)
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while creating the Hotel."
+            });
+        });
+
+}
+
 
 
 
@@ -53,7 +85,7 @@ exports.getReservationByHotel = (req,res)=>{
 
 
 
-exports.getReservation = (req, res) => {
+exports.getReservationById = (req, res) => {
     const id = req.params.id;
 
     Reservation.findById(id)
@@ -87,36 +119,9 @@ exports.cancelReservation = (req, res) => {
         const reservation = req.body.reservationStatus;
   
         await Reservation.findByIdAndUpdate(reservation._id, {
-            reservationStatus:"CANCELLED"
+            reservationStatus:"CANCELLED",
+            rooms:[]
         })
-        let start =reservation.checkInDate
-        let end = reservation.checkOutDate
-        
-
-        //Add logic to remove reservation dates
-        const rooms=reservation.rooms;
-
-    
-
-        // Room.findById(reservation.roo, function(err, node) {
-        //     if (err) { return handleError(res, err); }
-        //     if (!node) { return res.status(404).send('Not Found'); }
-        //     console.log("Node", JSON.stringify(node))
-        //     console.log("Params", req.params)
-    
-        //     node
-        //         .update({ '_id': req.params.id }, { $pull: { 'configuration': { 'links': { '_id': req.params.linkId } } } }, false, true)
-        //         .then(err => {
-        //             if (err) { return handleError(res, err); }
-        //             return res.status(204).send('No Content');
-        //         });
-        // })
-
-        
-
-
-
-  
         res.redirect('/profile')
     } catch (err) {
         res.status(500).send(err)
@@ -136,7 +141,7 @@ exports.cancelReservation = (req, res) => {
 
 
 
-exports.addReservation = (req, res) => {
+exports.createReservation = (req, res) => {
 
 
     if (!req.body) {
