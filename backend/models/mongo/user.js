@@ -8,6 +8,10 @@ const userSchema = new Schema(
             required: true,
             maxlength: 200
         },
+        lastName: {
+            type: String,
+            maxlength: 200,
+        },
         email: {
             type: String,
             required: true,
@@ -26,10 +30,7 @@ const userSchema = new Schema(
             default: null
         },
         address: {
-            street: { type: String },
-            city: { type: String },
-            state: { type: String },
-            zipCode: { type: String }
+            type: String
         },
         rewards: {
             type: Number,
