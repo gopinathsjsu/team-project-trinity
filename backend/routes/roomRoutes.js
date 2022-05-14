@@ -9,4 +9,10 @@ module.exports = app => {
 
     //Retrieve rooms by hotelId
     app.get("/rooms/:hotelId", room.findByHotelId);
+
+    //Get room dates array
+
+    app.get("/rooms/reserservationArray", room.findRoomReservationDates);
+
+    
 }

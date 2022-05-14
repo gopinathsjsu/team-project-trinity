@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 require("./routes/hotelRoutes")(app);
 require("./routes/userRoutes")(app);
 require("./routes/roomRoutes")(app);
-require("./routes/reservationRoutes")(app);
+//require("./routes/reservationRoutes")(app);
 
 
 app.post("/signup", async function (req, res) {

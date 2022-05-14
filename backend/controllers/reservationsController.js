@@ -1,5 +1,6 @@
 const { Reservation } = require("../models/mongo/reservations")
-const express = require('express')
+const express = require('express');
+const { Room } = require("../models/mongo/room");
 const router = express.Router();
 
 
@@ -21,7 +22,7 @@ exports.getReservationAll = (req, res) => {
 
 
 
-exports.getReservationForCustomer =(req,res)=>{
+exports.getReservationForUser =(req,res)=>{
     Reservation.find(req.params.userId)
     .then(data=>{
         console.log("Reservation for customer")
@@ -81,23 +82,47 @@ exports.editReservation = (req, res) => {
 
 
 
-
-
-
-
 exports.cancelReservation = (req, res) => {
-    Reservation.findByIdAndRemove({ id: req.params.id })
-        .then(reservation => {
-            res.send(reservation);
+    try {
+        const reservation = req.body.reservationStatus;
+  
+        await Reservation.findByIdAndUpdate(reservation._id, {
+            reservationStatus:"CANCELLED"
         })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Error occured while getting required reservation"
-            })
-        });
+        let start =reservation.checkInDate
+        let end = reservation.checkOutDate
+        
+
+        //Add logic to remove reservation dates
+        const rooms=reservation.rooms;
+
+    
+
+        // Room.findById(reservation.roo, function(err, node) {
+        //     if (err) { return handleError(res, err); }
+        //     if (!node) { return res.status(404).send('Not Found'); }
+        //     console.log("Node", JSON.stringify(node))
+        //     console.log("Params", req.params)
+    
+        //     node
+        //         .update({ '_id': req.params.id }, { $pull: { 'configuration': { 'links': { '_id': req.params.linkId } } } }, false, true)
+        //         .then(err => {
+        //             if (err) { return handleError(res, err); }
+        //             return res.status(204).send('No Content');
+        //         });
+        // })
+
+        
+
+
+
+  
+        res.redirect('/profile')
+    } catch (err) {
+        res.status(500).send(err)
+    }
     // Reservation.userI
-}
+};
 
 
 
@@ -131,10 +156,7 @@ exports.addReservation = (req, res) => {
         amenities: req.body.amenities
     })
 
-
-
-
-
+    console.log("Rooms Resevartion Array : ", req.body.rooms.reservationsDates);
     reservation
         .save()
         .then(data => {
@@ -154,31 +176,6 @@ exports.addReservation = (req, res) => {
 
 
 
-
-
-
-
-
-function dateRangeOverlaps(a_start, a_end, b_start, b_end) {
-    if (a_start <= b_start && b_start <= a_end) return true; // b starts in a
-    if (a_start <= b_end   && b_end   <= a_end) return true; // b ends in a
-    if (b_start <  a_start && a_end   <  b_end) return true; // a in b
-    return false;
-}
-function multipleDateRangeOverlaps() {
+exports.checkValidDates =(req,res) => {
     
-    var i, j;
-    if (arguments.length % 2 !== 0)
-        throw new TypeError('Arguments length must be a multiple of 2');
-    for (i = 0; i < arguments.length - 2; i += 2) {
-        for (j = i + 2; j < arguments.length; j += 2) {
-            if (
-                dateRangeOverlaps(
-                    arguments[i], arguments[i+1],
-                    arguments[j], arguments[j+1]
-                )
-            ) return true;
-        }
-    }
-    return false;
 }

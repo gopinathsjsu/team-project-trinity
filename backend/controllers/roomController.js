@@ -1,5 +1,6 @@
 const { Room } = require("../models/mongo/room")
-const express = require('express')
+const express = require('express');
+const { Reservation } = require("../models/mongo/reservations");
 const router = express.Router();
 
 exports.create = (req, res) => {
@@ -64,3 +65,8 @@ exports.findByHotelId = (req, res) => {
         })
     })
 }
+
+exports.checkValidDates = (req, res) =>{
+
+}
+
