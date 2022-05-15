@@ -18,9 +18,9 @@ Deployment : Amazon EC2
 
 
 ## XP Core Values Implemented
-Simplicity
+1) Simplicity
 
-We analyzed all features that were to be implemented for the application and decided to choose the simplest yet powerful tools and technologies to implement.
+2) Respect
 
 ## Steps to run application
 
