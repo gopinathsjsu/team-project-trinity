@@ -8,7 +8,7 @@ const userSchema = new Schema(
             required: true,
             maxlength: 200
         },
-        image: {
+        lastName: {
             type: String,
             maxlength: 1024,
             default: "https://cdn-media-2.freecodecamp.org/w1280/5f9c9c8c740569d1a4ca32d2.jpg"
@@ -31,10 +31,7 @@ const userSchema = new Schema(
             default: null
         },
         address: {
-            street: { type: String },
-            city: { type: String },
-            state: { type: String },
-            zipCode: { type: String }
+            type: String
         },
         rewards: {
             type: Number,

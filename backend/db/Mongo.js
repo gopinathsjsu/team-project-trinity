@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 
 const uri = require('../config/default.json')
-// const uri = "mongodb+srv://@cluster0.tuexv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 mongoose
     .connect(

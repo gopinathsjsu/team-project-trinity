@@ -66,21 +66,6 @@ exports.create = async (req, res) => {
 }
 
 
-exports.findAll = (req, res) => {
-
-    Reservation.find()
-        .then(data => {
-            console.log("All Reservations Data: ", data)
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                    err.message || "Some error occurred while fetching reservations data."
-            });
-        });
-};
-
 exports.findByUser = async (req, res) => {
 
     const userId = req.query.id

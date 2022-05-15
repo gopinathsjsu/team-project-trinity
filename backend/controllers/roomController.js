@@ -4,7 +4,7 @@ const Holidays = require("date-holidays")
 const express = require('express')
 const router = express.Router();
 
-exports.create = (req, res) => {
+exports.createRoom = (req, res) => {
     if (!req.body) {
         res.status(400).send({ message: "Invalid request body passed!" })
     }

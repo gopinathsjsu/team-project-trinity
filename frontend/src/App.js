@@ -1,4 +1,3 @@
-
 import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom'
 import LandingPage from './Pages/LandingPage/LandingPage'
