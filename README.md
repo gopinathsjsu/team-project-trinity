@@ -20,7 +20,7 @@ Deployment : Amazon EC2
 ## XP Core Values Implemented
 1) Simplicity
 
-2) Respect
+2) Communication
 
 ## Steps to run application
 
