@@ -14,7 +14,7 @@ Backend : Node JS
 
 Database : Mongo DB
 
-Deployment : Amazon EC2 Autoscaled cluster with Load balancing - [LINK]
+Deployment : Amazon EC2 
 
 
 ## XP Core Values Implemented
