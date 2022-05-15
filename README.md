@@ -44,6 +44,14 @@ Saturdays 2:00pm-4:00pm
 ## TechStack
 HTML5, CSS, React JS, Node JS
 
+## Use Case Diagram
+
+![usecase](https://user-images.githubusercontent.com/89826948/168486082-83813f53-9429-40eb-a7a7-1210ad625a2d.png)
+
+## Component DIagram
+
+![component](https://user-images.githubusercontent.com/89826948/168486096-80d22bcc-d4d4-411e-ad6a-07687a1ab154.png)
+
 ## UI Wireframes
 
 ### Login
