@@ -1,5 +1,5 @@
 
-## Sprint1
+## Sprint 1
     
     What task did I work on?
       Read the project requirements, set up github project repo and finalized on what project we'll work on.
@@ -8,7 +8,7 @@
     Any blockers?
       None
      
-## Sprint2
+## Sprint 2
     
     What task did I work on? 
       Created schema for our models for the database and created a Mongo DB cluster.
@@ -17,7 +17,7 @@
     Any blockers?
       None
 
-## Sprint3
+## Sprint 3
     
     What task did I work on? 
       Finished designing UI workframes and divided pages amongst ourselves to work based on design.
@@ -26,7 +26,7 @@
     Any blockers? 
       None
        
-## Sprint4
+## Sprint 4
     
     What task did I work on? 
       worked on Login/Sign up pages for customer and started working on Admin dashboard, Login and Sign up components.
@@ -35,7 +35,7 @@
     Any blockers? 
       None
       
-## Sprint5
+## Sprint 5
     
     What task did I work on? 
       Completed work on frontend pages. Brushed through the basics of node.js and divided the required API's amongst ourselves.
@@ -44,7 +44,7 @@
     Any blockers? 
       None
 
-## Sprint6
+## Sprint 6
     
     What task did I work on? 
       Completed work on login and sign up api's for customer and admin with 2 API's incomplete. Worked on sign up page which wasn't efficient.
@@ -54,20 +54,20 @@
       API's incomplete
       
       
-## Sprint7
+## Sprint 7
     
-    What task did I work on/complete? 
+    What task did I work on? 
       Completed work on the pending API's which are Delete room API, GetReservations API. 
     What am I planning to do to next? 
       Testing the application flow, deploying and fixing bugs
     Any blockers? 
       None
       
-## Sprint8
+## Sprint 8
     
-    What task did I work on/complete? 
+    What task did I work on? 
       Worked on the Documentation and final report of the project.
     What am I planning to do to next? 
      None
-    What tasks are blocked waiting on another team member? 
+    Any blockers? 
       None
