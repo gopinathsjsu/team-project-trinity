@@ -7,10 +7,6 @@ Aaryaneil Nimbalkar
 
 Manish Mapakshi
 
-## XP Core Values Implemented
-1. Simplicity
-- We analyzed all features that were to be implemented for the application and decided to choose the simplest yet powerful tools and technologies to implement.
-
 ## Tools and Technology Used
 Frontend : HTML5, CSS, React JS
 
@@ -20,6 +16,10 @@ Database : Mongo DB
 
 Deployment : Amazon EC2 Autoscaled cluster with Load balancing - [LINK]
 
+
+## XP Core Values Implemented
+1. Simplicity
+We analyzed all features that were to be implemented for the application and decided to choose the simplest yet powerful tools and technologies to implement.
 
 ## Steps to run application
 
