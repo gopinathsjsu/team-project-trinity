@@ -58,6 +58,11 @@ HTML5, CSS, React JS, Node JS
 
 ## Project Board
 
+[Link] (https://github.com/gopinathsjsu/team-project-trinity/projects/1)
+
+## Project Journal
+
+[Link] 
 
 ## UI Wireframes
 
