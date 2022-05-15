@@ -52,9 +52,9 @@ const Summary = () => {
                 totalPrice: totalBill,
             })
         }
-
+        console.log(roomsData)
         const res = await axios.post(`${BASE_API_URL}/reservations`, { roomsData })
-        console.log(res)
+        // console.log("summ", res.data)
         console.log("Reservation Creted!")
         navigate('/')
     }
@@ -86,15 +86,17 @@ const Summary = () => {
     }
 
     useEffect(() => {
+        getUserInfo()
+
         calculateAmenites()
         calculateRoomCharges()
-        calculateTotalBill()
 
-    }, [roomCharges, totalBill, breakfast, parking, gym, swimmingPool, allMeals])
+
+    }, [rewards, roomCharges, totalBill, breakfast, parking, gym, swimmingPool, allMeals])
 
     useEffect(() => {
-        getUserInfo()
-    }, [])
+        calculateTotalBill()
+    }, [calculateAmenites, calculateRoomCharges])
 
 
     return (
@@ -115,7 +117,7 @@ const Summary = () => {
                                 <div>
                                     <h5><b>{hotel.name} </b></h5>
                                     <h5><b>{hotel?.address.street}, {hotel?.address.city}, {hotel?.address.state}, {hotel?.address.zipCode}</b></h5>
-                                    <h5><b>{hotel.phoneNumber}</b></h5>
+                                    <h5><b>{hotel?.phoneNumber}</b></h5>
                                 </div>
                             </div>
                             <div className="hotel-summary-info-wrapper">
@@ -256,17 +258,16 @@ const Summary = () => {
                                 <div>
                                     <div><b>Room Charges: </b></div>
                                     <div><b>Add On Amenities Charges: </b></div>
-                                    <div><b>Customer Loyalty Discount: </b></div>
+                                    {/* <div><b>Customer Loyalty Discount: </b></div> */}
                                     <div><b>Reward Points Used: </b></div>
-                                    <div><b>Hike (Seasonal/Weekend): </b></div>
+                                    {/* <div><b>Hike (Seasonal/Weekend): </b></div> */}
                                     <div><b>Amount Payable: </b></div>
                                 </div>
                                 <div>
                                     <div><b>${roomCharges}</b></div>
                                     <div><b>${amenitiesCharges}</b></div>
-                                    <div><b>$ 2</b></div>
+                                    {/* <div><b>$ 2</b></div> */}
                                     <div><b>${rewards === true ? userData?.rewards : 0}</b></div>
-                                    <div><b>$ hike</b></div>
                                     <div><b>${totalBill}</b></div>
 
                                 </div>

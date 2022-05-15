@@ -52,6 +52,7 @@ const HotelLandingPage = () => {
             <div className='buttons-wrapper' style={{ marginbackgroundColor: "white" }}>
                 <Link to={`/hotel/updateDetails`} state={hotelData}><Button size="lg" variant="dark">Update Hotel Details</Button></Link>
                 <Link to={`/hotel/updateRooms`}><Button size="lg" variant="dark">Update Room Details</Button></Link>
+                <Link to={`/user/login`}><Button size="lg" variant="dark">Signout</Button></Link>
 
             </div>
         </div>

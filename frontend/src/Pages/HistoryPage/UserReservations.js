@@ -16,8 +16,12 @@ const UserReservations = () => {
     }
 
     const removeReservation = async (e) => {
-        console.log(e)
-        // const res = await (`${BASE_API_URL}/reservations/`)
+
+        console.log(e.target.value)
+
+        const reservationId = e.target.value;
+
+        const res = await axios.put(`${BASE_API_URL}/reservations/${reservationId}`)
     }
     useEffect(() => {
         getReservations()
@@ -59,14 +63,19 @@ const UserReservations = () => {
                                     })
                                     }
                                 </div> */}
-                                <div>Check In Date : {moment(r?.checkInDate).format("Do MMMM YYYY")}</div>
-                                <div>Check Out Date :{moment(r?.checkOutDate).format("Do MMMM YYYY")} </div>
-                                <div>Total Bill ($): {r?.totalPrice}</div>
+                                <div ><b>ReservationId:</b>{r?.reservationId} </div>
+                                <div><b>Hotel Name: </b>{r?.hotelId}</div>
+                                <div><b>Number Of Guests:</b> {r?.numberOfGuests}</div>
+                                <div><b>Room Type:</b> {r?.roomType}</div>
+                                <div><b>Status: </b>{r?.status}</div>
+                                <div><b>Check In Date : </b>{moment(r?.checkInDate).format("Do MMMM YYYY")}</div>
+                                <div><b>Check Out Date :</b>{moment(r?.checkOutDate).format("Do MMMM YYYY")} </div>
+                                <div><b>Total Bill ($):</b> {r?.totalPrice}</div>
 
 
                             </div>
                             <div className='search-results-button-wrapper'>
-                                <Button size="lg" variant="danger" onClick={removeReservation}> Cancel Reservation</Button>
+                                <Button size="lg" variant="danger" value={r?.reservationId} onClick={removeReservation}> Cancel Reservation</Button>
                             </div>
                         </ListGroup.Item>
                         )

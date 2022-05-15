@@ -8,4 +8,5 @@ module.exports = app => {
     app.post("/users/login", user.logins)
 
     app.get('/users/:id', user.findOne)
+
 }

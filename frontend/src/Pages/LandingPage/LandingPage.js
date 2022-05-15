@@ -13,6 +13,7 @@ const LandingPage = () => {
     const [checkOutDate, setCheckOutDate] = useState(moment(new Date()).format("YYYY-MM-DD"))
     const [numberOfGuests, setNmberOfGuests] = useState()
     const [searchResultsData, setSearchResultsData] = useState()
+    const [message, setMessage] = useState()
 
 
 
@@ -27,6 +28,14 @@ const LandingPage = () => {
     }
     const handleCheckOutDate = (e) => {
         console.log("Check out ", e.target.value)
+
+        if (moment(checkInDate, 'YYYY-MM-DD').add(7, 'd')._d < moment(checkOutDate, 'YYYY-MM-DD')._d) {
+            setMessage("Can book only for a maximum of 7 days")
+        }
+        else {
+            setMessage("")
+
+        }
         setCheckOutDate(e.target.value)
     }
     const handleNumberofGuests = (e) => {
@@ -66,6 +75,7 @@ const LandingPage = () => {
                 handleNumberofGuests={() => handleNumberofGuests}
                 searchResultsData={searchResultsData}
                 searchButtonHandler={() => onButtonClickHandler}
+                message={message}
             />
             <SearchResults
                 searchResultsData={searchResultsData}

@@ -10,7 +10,7 @@ import HotelSignUp from './Pages/LoginSignup/HotelSignUp';
 import UserLogin from './Pages/LoginSignup/UserLogin';
 import HoteLogin from './Pages/LoginSignup/HoteLogin';
 import UpdateHotel from './Pages/HotelMainPage/UpdateHotel';
-import UserProfile from './Pages/ProfilePage/UserProfile';
+import UserProfile from './Pages/ProfilePage/userProfile';
 import HotelRoomUpdate from './Pages/HotelMainPage/HotelRoomUpdate';
 import HotelLandingPage from './Pages/HotelMainPage/HotelLandingPage';
 import UserReservations from './Pages/HistoryPage/UserReservations';

@@ -8,9 +8,9 @@ const reservationScehma = new Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-        reservationStatus:{
+        reservationStatus: {
             type: String,
-            enum: ["OPEN","CLOSED","CANCELLED"]
+            enum: ["OPEN", "CLOSED", "CANCELLED"]
         },
         hotelId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -19,10 +19,10 @@ const reservationScehma = new Schema(
         roomId: { type: mongoose.Schema.Types.ObjectId, ref: "Room" },
         roomType: { type: String },
         numberOfGuests: { type: Number },
-        status: { type: String, enum: ["ACTIVE", "CANCELED"] },
+        status: { type: String, enum: ["ACTIVE", "CANCELLED"] },
         numberOfRooms: { type: Number },
         totalPrice: { type: Number },
-        rewardsUsed:{type: Number},
+        rewardsUsed: { type: Number },
         checkInDate: { type: Date },
         checkOutDate: { type: Date },
         amenities: {

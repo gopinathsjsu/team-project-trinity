@@ -4,15 +4,17 @@ import moment from 'moment'
 
 const SearchPanel = (props) => {
 
-    const [maxDate, setMaxDate] = useState()
-    useEffect(() => {
-        console.log((moment(props.checkInDate, 'YYYY-MM-DD').add(7, 'd'))._d)
+    // const [maxDate, setMaxDate] = useState()
+    // useEffect(() => {
+    //     console.log((moment(props.checkInDate, 'YYYY-MM-DD').add(7, 'd'))._d)
 
-        setMaxDate(moment(props.checkInDate, 'YYYY-MM-DD').add(7, 'd')._d)
-    }, [props.checkInDate])
+    //     // setMaxDate(moment(props.checkInDate, 'YYYY-MM-DD').add(7, 'd')._d)
+    // }, [props.checkInDate])
+
+
 
     return (
-        <div className='search-wrapper'>
+        <div className='search-wrapper' style={{ display: "block" }}>
             <Form
                 id="searchPanelForm"
             >
@@ -51,7 +53,7 @@ const SearchPanel = (props) => {
                             // onFocus={(e) => e.target.type = "date"}
                             // onBlur={(e) => e.target.type = "text"}
                             min={props.checkInDate}
-                            max={maxDate}
+                            // max={maxDate}
                             placeholder="CheckOut Date"
                             value={props.checkOutDate}
                             onChange={props.handleCheckOutDate()}
@@ -82,6 +84,9 @@ const SearchPanel = (props) => {
                     </Col>
                 </Row>
             </Form>
+            <div>
+                <p style={{ color: "red" }}> {props.message}</p>
+            </div>
         </div>
     )
 }

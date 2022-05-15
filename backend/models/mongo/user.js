@@ -31,7 +31,10 @@ const userSchema = new Schema(
             default: null
         },
         address: {
-            type: String
+            street: { type: String },
+            city: { type: String },
+            state: { type: String },
+            zipcode: { type: String }
         },
         rewards: {
             type: Number,

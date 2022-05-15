@@ -28,7 +28,7 @@ exports.create = async (req, res) => {
                     numberOfGuests: room.numberOfGuests,
                     status: "ACTIVE",
                     amenities: room.amenities,
-                    totalBill: room.totalBill,
+                    totalPrice: room.totalPrice,
                 });
 
                 await newReservation.save();
@@ -68,14 +68,11 @@ exports.create = async (req, res) => {
 
 exports.findByUser = async (req, res) => {
 
-    const userId = req.query.id
+    const userId = req.params.id
 
-    const response = await Reservation.find(userId)
+    const response = await Reservation.find({ userId: userId })
 
-    let reserves = {}
-    for (r in response) {
-        reserves[r.reservationId]
-    }
+
 
     console.log(response)
     res.send(response)
@@ -84,7 +81,7 @@ exports.findByUser = async (req, res) => {
 
 exports.remove = async (req, res) => {
 
-    await Reservation.remove({ reservationId: req.params.reservationId })
+    await Reservation.updateMany({ reservationId: req.params.reservationId }, { $set: { status: "CANCELLED" } })
 
-    res.status.send("Removed")
+    res.status(200).send("Removed")
 }

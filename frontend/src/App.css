@@ -314,3 +314,7 @@ h2 {
   height: 100%; */
   /* justify-content: center; */
 }
+
+.search-results-content-wrapper * {
+  font-size: 18px;
+}

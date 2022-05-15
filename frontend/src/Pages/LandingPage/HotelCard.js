@@ -13,7 +13,7 @@ const HotelCard = (props) => {
                 <div style={{ textAlign: "left", width: "50%", padding: "20px 20px" }}>
 
                     <Card.Title><b>{name}</b></Card.Title>
-                    <Card.Text>{address.street}, {address.city}, {address.state}, {address.zipCode}</Card.Text>
+                    <Card.Text>{address?.street}, {address?.city}, {address?.state}, {address?.zipCode}</Card.Text>
                     <Card.Text>{phoneNumber}</Card.Text>
                     <Card.Text>{description}</Card.Text>
                     <br />

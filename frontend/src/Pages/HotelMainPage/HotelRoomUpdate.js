@@ -23,7 +23,7 @@ const HotelRoomUpdate = () => {
         }
         const res = await axios.put(`${BASE_API_URL}/rooms/${hotelId}/${type}`, payload)
 
-        console.log(res.data)
+        console.log("C", res.data)
     }
 
 
@@ -34,6 +34,7 @@ const HotelRoomUpdate = () => {
         setMaxOccupancy(res.data.maxOccupancy)
         setNumberofRooms(res.data.numberOfRooms)
         setPrice(res.data.price)
+        setImage(res.data.image)
 
 
     }
@@ -53,7 +54,7 @@ const HotelRoomUpdate = () => {
                 <div style={{ display: "flex", justifyContent: "space-evenly", padding: "30px", width: "100%", alignContent: "center" }} >
                     <div style={{ width: "40%" }}>
                         <img style={{ objectFit: ' cover', width: '100%', height: '100%', borderRadius: "5px", }}
-                            src={"https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Imperial_Hotel_Osaka_regular_floor_standard_twin_room_20120630-001.jpg/1200px-Imperial_Hotel_Osaka_regular_floor_standard_twin_room_20120630-001.jpg"}
+                            src={image}
                             alt="" />
 
                         {/* <Form.Group controlId="formFile" className="mb-3">
@@ -70,7 +71,6 @@ const HotelRoomUpdate = () => {
                                 <option>Double</option>
                                 <option>Suite</option>
                                 <option>Deluxe</option>
-                                <option>Super Deluxe</option>
                             </Form.Select>
                         </Form.Group>
                         <br />

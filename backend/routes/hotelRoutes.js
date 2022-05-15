@@ -2,7 +2,7 @@ module.exports = app => {
     const hotel = require("../controllers/hotelController");
 
     // Create a new hotel
-    app.post("/hotels/create", hotel.createHotel);
+    app.post("/hotels", hotel.create);
 
     //Retrieve all hotels
     app.get("/hotels", hotel.findAll)

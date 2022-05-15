@@ -38,6 +38,7 @@ exports.create = async (req, res) => {
         res.status(400).send({ message: "Invalid request body passed!" })
     }
 
+    console.log(req.body)
     const user = new User({
         email: req.body.email,
         password: req.body.password,
