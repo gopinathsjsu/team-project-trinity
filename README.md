@@ -31,7 +31,7 @@ Step 3 : Change directory to the backend and frontend folders respectively in th
 
 Step 4 : Run the command npm install to install the required node modules.
 
-Step 5 : Run the command npm install in both the terminals to run the application on localhost.
+Step 5 : Run the command npm start in both the terminals to run the application on localhost.
 
 
 ## Scrum Meetings
