@@ -1,4 +1,4 @@
-module.exports = app => {
+    module.exports = app => {
     const hotel = require("../controllers/hotelController");
 
     // Create a new hotel
@@ -12,4 +12,7 @@ module.exports = app => {
 
     //Landing Page Search by Location
     app.get("/hotelsByLocation/:location", hotel.findByLocation);
+
+
+    
 }
