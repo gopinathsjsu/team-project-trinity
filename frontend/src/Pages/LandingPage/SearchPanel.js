@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import moment from 'moment'
 
 const SearchPanel = (props) => {
+
+    const [maxDate, setMaxDate] = useState()
+    useEffect(() => {
+        console.log((moment(props.checkInDate, 'YYYY-MM-DD').add(7, 'd'))._d)
+
+        setMaxDate(moment(props.checkInDate, 'YYYY-MM-DD').add(7, 'd')._d)
+    }, [props.checkInDate])
+
     return (
         <div className='search-wrapper'>
             <Form
@@ -11,6 +19,7 @@ const SearchPanel = (props) => {
                 <h2>Where To?</h2>
                 <Row>
                     <Col>
+                        <div style={{ textAlign: "left" }}>Location</div>
                         <Form.Control
                             type='text'
                             size="lg"
@@ -21,13 +30,13 @@ const SearchPanel = (props) => {
                         />
                     </Col>
                     <Col>
+                        <div style={{ textAlign: "left" }}>Check In Date</div>
                         <Form.Control
-                            type='text'
-                            // type="date"
+                            type='date'
                             size="lg"
                             placeholder="CheckIn Date"
-                            onFocus={(e) => e.target.type = "date"}
-                            onBlur={(e) => e.target.type = "text"}
+                            // onFocus={(e) => e.target.type = "date"}
+                            // onBlur={(e) => e.target.type = "text"}
                             min={props.checkInDate}
                             value={props.checkInDate}
                             onChange={props.handleCheckInDate()}
@@ -35,14 +44,14 @@ const SearchPanel = (props) => {
                         />
                     </Col>
                     <Col>
+                        <div style={{ textAlign: "left" }}>Check Out Date</div>
                         <Form.Control
-                            // type='date'
                             size="lg"
-                            type="text"
-                            onFocus={(e) => e.target.type = "date"}
-                            onBlur={(e) => e.target.type = "text"}
+                            type="date"
+                            // onFocus={(e) => e.target.type = "date"}
+                            // onBlur={(e) => e.target.type = "text"}
                             min={props.checkInDate}
-                            max={moment(props.checkInDate).add(7, 'd')}
+                            max={maxDate}
                             placeholder="CheckOut Date"
                             value={props.checkOutDate}
                             onChange={props.handleCheckOutDate()}
@@ -51,6 +60,7 @@ const SearchPanel = (props) => {
                     </Col>
 
                     <Col>
+                        <div style={{ textAlign: "left" }}>Number of Guests</div>
                         <Form.Control
                             type="number"
                             size="lg"
@@ -64,6 +74,7 @@ const SearchPanel = (props) => {
                     </Col>
 
                     <Col>
+                        <br />
                         <Button
                             size="lg"
                             type="submit"

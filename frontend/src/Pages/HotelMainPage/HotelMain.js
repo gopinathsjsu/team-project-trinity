@@ -10,7 +10,7 @@ const HotelMain = () => {
 
     const [roomsData, setRoomsData] = useState()
     const [selectedRooms, setSelectedRooms] = useState({})
-
+    const [charge, setCharge] = useState(0)
     const location = useLocation()
     const payload = location.state.payload
     const { _id, name, description, image, phoneNumber, address } = location.state.payload.hotel
@@ -19,8 +19,16 @@ const HotelMain = () => {
     console.log(location.state.payload)
     const fetchRoomDetails = async () => {
         const hotelId = _id
-        const response = await axios.get(`${BASE_API_URL}/rooms/${hotelId}`)
-        console.log(response.data)
+
+
+        const searchQuery = {
+            hotelId,
+            checkInDate: payload.checkInDate,
+            checkOutDate: payload.checkOutDate,
+
+        }
+        const response = await axios.get(`${BASE_API_URL}/rooms/search`, { params: searchQuery })
+        console.log("data", response.data)
         setRoomsData(response.data)
     }
 
@@ -72,13 +80,14 @@ const HotelMain = () => {
                                 <RoomCard
                                     selectedRooms={selectedRooms}
                                     room={room}
+                                    charge={charge}
                                 ></RoomCard>
                             )
                         })
                     }
                 </div>
                 <div className="buttons-wrapper" >
-                    <Link to="/summary" state={{ payload, selectedRooms }}><Button size="lg"
+                    <Link to="/summary" state={{ payload, selectedRooms, charge }}><Button size="lg"
                         onClick={() => console.log("Selected rooms so far", selectedRooms)}>
                         Proceed
                     </Button></Link>

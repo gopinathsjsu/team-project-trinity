@@ -8,12 +8,12 @@ const roomSchema = new Schema(
         },
         type: {
             type: String,
-            enum: ["SINGLE", "DOUBLE", "SUITE", "DELUXE", "SUPER DELUXE"]
+            enum: ["Single", "Double", "Suite", "Deluxe"]
         },
         image: { type: String },
         price: { type: Number },
-        maxOccupancy: { type: Number },
-        numberOfRooms: { type: Number }
+        maxOccupancy: { type: Number, default: 2 },
+        numberOfRooms: { type: Number, default: 0 }
     }
 );
 const Room = mongoose.model('Room', roomSchema);

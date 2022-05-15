@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const reservationScehma = new Schema(
     {
-
+        reservationId: { type: String },
         userId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
@@ -12,11 +12,11 @@ const reservationScehma = new Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "Hotel",
         },
-        rooms: [{
-            roomId: { type: mongoose.Schema.Types.ObjectId, ref: "Room" },
-            numberOfRooms: { type: Number }
-        }],
+        roomId: { type: mongoose.Schema.Types.ObjectId, ref: "Room" },
+        roomType: { type: String },
         numberOfGuests: { type: Number },
+        status: { type: String, enum: ["ACTIVE", "CANCELED"] },
+        numberOfRooms: { type: Number },
         totalPrice: { type: Number },
         checkInDate: { type: Date },
         checkOutDate: { type: Date },

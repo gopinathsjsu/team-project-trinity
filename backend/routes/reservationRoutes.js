@@ -5,4 +5,9 @@ module.exports = app => {
 
     //Retrieve all reservations
     app.get("/reservations", reservations.findAll)
+
+    //Retrieve one user reservation
+    app.get("/reservations/:id", reservations.findByUser)
+
+    app.delete("/reservations/:reservationId", reservations.remove)
 }

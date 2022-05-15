@@ -11,6 +11,7 @@ const userSchema = new Schema(
         image: {
             type: String,
             maxlength: 1024,
+            default: "https://cdn-media-2.freecodecamp.org/w1280/5f9c9c8c740569d1a4ca32d2.jpg"
         },
         email: {
             type: String,

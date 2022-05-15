@@ -10,7 +10,7 @@ const LandingPage = () => {
 
     const [location, setLocation] = useState()
     const [checkInDate, setCheckInDate] = useState(moment(new Date()).format("YYYY-MM-DD"))
-    const [checkOutDate, setCheckOutDate] = useState()
+    const [checkOutDate, setCheckOutDate] = useState(moment(new Date()).format("YYYY-MM-DD"))
     const [numberOfGuests, setNmberOfGuests] = useState()
     const [searchResultsData, setSearchResultsData] = useState()
 

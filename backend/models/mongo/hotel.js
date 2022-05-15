@@ -10,10 +10,11 @@ const hotelSchema = new Schema(
         },
         image: {
             type: String,
-            maxlength: 1024,
+            maxlength: 1024, default: "https://cdn.dribbble.com/users/118337/screenshots/3831581/building_loader.gif",
         },
         email: {
             type: String,
+
             required: true,
             maxlength: 200
         },
@@ -37,27 +38,32 @@ const hotelSchema = new Schema(
             street: { type: String },
             city: { type: String },
             state: { type: String },
-            zipCode: { type: String }
+            zipcode: { type: String }
         },
         hikes: {
             seasonal: { type: Number, default: 20 },
             weekend: { type: Number, default: 15 }
         },
-        amenitites: {
+        amenities: {
             breakfast: {
                 type: Number,
+                default: 0
             },
             gym: {
                 type: Number,
+                default: 0
             },
             pool: {
                 type: Number,
+                default: 0
             },
             parking: {
                 type: Number,
+                default: 0
             },
             meals: {
                 type: Number,
+                default: 0
             }
         }
     }

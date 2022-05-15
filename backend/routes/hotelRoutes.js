@@ -12,4 +12,10 @@ module.exports = app => {
 
     //Landing Page Search by Location
     app.get("/hotelsByLocation/:location", hotel.findByLocation);
+
+    //login
+    app.post("/hotels/login", hotel.logins)
+
+    // update hotel
+    app.put("/hotels/:id", hotel.updateHotel)
 }
