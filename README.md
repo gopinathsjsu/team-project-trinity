@@ -48,9 +48,16 @@ HTML5, CSS, React JS, Node JS
 
 ![usecase](https://user-images.githubusercontent.com/89826948/168486082-83813f53-9429-40eb-a7a7-1210ad625a2d.png)
 
-## Component DIagram
+## Component Diagram
 
 ![component](https://user-images.githubusercontent.com/89826948/168486096-80d22bcc-d4d4-411e-ad6a-07687a1ab154.png)
+
+## Deployment Diagram
+
+<img width="1421" alt="deploymentDiagram" src="https://user-images.githubusercontent.com/89826948/168492462-2b1c4c4b-a64c-421e-bff5-0c3931df9dec.png">
+
+## Project Board
+
 
 ## UI Wireframes
 
