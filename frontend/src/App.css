@@ -233,65 +233,84 @@ h2 {
   margin-bottom: 10px;
 }
 
-
-
-/* LOGIN SIGNUP */
-
-
-.form-rest-signup button,
-.form-user-signup button,
-.detail button,
-.form-user-signin button,
-.form-rest-signin button {
-  width: 80%;
-  height: 40px;
-  border-radius: 50px;
-  outline: none;
-  border: 0px;
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  cursor: pointer;
-}
-
-.detail button {
-  width: 30%;
-}
-
-.cover-user {
-  padding: 80px 30px;
-  display: flex;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.form-rest-signup,
-.form-user-signup,
-.form-user-signin,
-.form-rest-signin {
-  background: rgba(0, 0, 0, 0.466);
-  color: white;
-  width: 30%;
-  padding: 30px;
-  margin-left: auto;
-  text-align: center;
-  border-radius: 10px;
-  border: 2px solid #06c167;
-  text-align: left;
+.signup-wrapper {
+  /* background-color: antiquewhite; */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  height: fit-content;
+  justify-content: center;
 }
 
-.form-rest-signup input,
-.form-user-signup input,
-.form-user-signin input,
-.form-rest-signin input {
-  padding-left: 10px;
-  width: 95%;
-  height: 50px;
-  font-size: 16px;
-  border: 1px solid grey;
+.signup-sub-wrapper {
+  width: 30%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.831);
   border-radius: 10px;
+
+}
+
+.div-wrapper {
+  background-color: rgba(255, 255, 255, 0.73);
+  margin: 0px 100px;
+  padding: 20px;
+
+  text-align: left;
+  /* height: 100vh; */
+  /* width: 100vh; */
+}
+
+.div-wrapper * {
+  margin-bottom: 10px;
+}
+
+.image-upload-wrapper button {
+  margin-top: 15px;
+  margin-right: 10px;
+  border-radius: 25px;
+  outline: none;
+  width: 50%;
+  border: none;
+  background-color: #06c167;
+  color: white;
+  font-weight: 600;
+}
+
+.image-upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-results-image-wrapper {
+  width: 30%;
+  height: 100%;
+}
+
+.search-results-image-wrapper img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.search-results-content-wrapper {
+  width: 40%;
+  height: 100%;
+  font-size: 24px;
+  text-align: left;
+}
+
+
+
+.search-results-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* width: 30%;
+  height: 100%; */
+  /* justify-content: center; */
 }

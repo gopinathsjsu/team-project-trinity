@@ -1,14 +1,11 @@
 module.exports = app => {
     const user = require("../controllers/userController");
 
-    // Create a new user
-    app.post("/users", user.createUser);
+    app.post("/users", user.create);
 
-    //Retrieve all users
-    app.get("/users", user.findAll);
+    app.get("/users", user.findAll)
 
+    app.post("/users/login", user.logins)
 
-    //Get one user
-    app.get("/user/:id", user.findOne);
-    
+    app.get('/users/:id', user.findOne)
 }
