@@ -10,8 +10,6 @@ Manish Mapakshi
 ## XP Core Values Implemented
 1. Simplicity
 - We analyzed all features that were to be implemented for the application and decided to choose the simplest yet powerful tools and technologies to implement.
-2. Respect
-- Respecting team mates opinion is one of the most important thing while we are working on a group project
 
 ## Tools and Technology Used
 Frontend : HTML5, CSS, React JS
