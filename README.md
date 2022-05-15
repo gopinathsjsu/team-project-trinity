@@ -23,6 +23,19 @@ Database : Mongo DB
 Deployment : Amazon EC2 Autoscaled cluster with Load balancing - [LINK]
 
 
+## Steps to run application
+
+Step 1 : Clone the repository.
+
+Step 2 : Open two terminals.
+
+Step 3 : Change directory to the backend and frontend folders respectively in the two terminals.
+
+Step 4 : Run the command npm install to install the required node modules.
+
+Step 5 : Run the command npm install in both the terminals to run the application on localhost.
+
+
 ## Scrum Meetings
 Saturdays 2:00pm-4:00pm 
 
