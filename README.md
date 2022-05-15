@@ -33,4 +33,20 @@ Saturdays 2:00pm-4:00pm
 ## TechStack
 HTML5, CSS, React JS, Node JS
 
+## UI Wireframes
+
+### Login
+
+<img width="954" alt="Screen Shot 2022-05-15 at 12 12 33 AM" src="https://user-images.githubusercontent.com/89826948/168462236-52a80788-0404-49e7-8f5d-4068b686811e.png">
+
+### Sign up
+
+<img width="919" alt="Screen Shot 2022-05-15 at 12 18 39 AM" src="https://user-images.githubusercontent.com/89826948/168462258-1d89d2d4-e3d3-44d1-9036-82c20b4919ce.png">
+
+### Homepage
+
+<img width="867" alt="Screen Shot 2022-05-15 at 12 30 11 AM" src="https://user-images.githubusercontent.com/89826948/168462273-02314a06-1518-4437-844b-799849b4cd6d.png">
+
+
+
 
