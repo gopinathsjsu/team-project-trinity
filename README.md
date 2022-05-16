@@ -65,7 +65,6 @@ HTML5, CSS, React JS, Node JS
 
 [Link] (https://github.com/gopinathsjsu/team-project-trinity/tree/main/Documents/Journal)
 
-## XP Core Values Implemented
 ## UI Wireframes
 
 ### Login
