@@ -70,4 +70,11 @@
      None
     Any blockers? 
       None
+      
+## Sprint 9
+    
+    What task did I work on? 
+      Worked on the Deployment of the project on AWS and testing of frontend.
+    Any blockers? 
+      None
 
