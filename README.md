@@ -65,6 +65,10 @@ HTML5, CSS, React JS, Node JS
 
 [Link] (https://github.com/gopinathsjsu/team-project-trinity/tree/main/Documents/Journal)
 
+## Scrum sheet and Burndown chart
+
+[Link] (https://docs.google.com/spreadsheets/d/1SezxR3r-sqV8ffaGuuPKOn_MXHrv5rTzztFNQNmNLtU/edit?usp=sharing)
+
 ## UI Wireframes
 
 ### Login
