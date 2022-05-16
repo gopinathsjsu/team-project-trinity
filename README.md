@@ -79,6 +79,19 @@ HTML5, CSS, React JS, Node JS
 
 <img width="867" alt="Screen Shot 2022-05-15 at 12 30 11 AM" src="https://user-images.githubusercontent.com/89826948/168462273-02314a06-1518-4437-844b-799849b4cd6d.png">
 
+### Bookings Page
+
+<img width="857" alt="Booking Page" src="https://user-images.githubusercontent.com/89826948/168534552-5895ebc6-923a-4125-bc43-c36e151a7e48.png">
+
+### Checkout Page
+
+<img width="785" alt="Checkout_page" src="https://user-images.githubusercontent.com/89826948/168534603-9b6b3ca7-ff79-4f5c-bcd0-357df2786c9d.png">
+
+### My Reservations Page
+
+<img width="903" alt="MyReservations_page" src="https://user-images.githubusercontent.com/89826948/168534656-8f41767e-2734-4e7a-a862-5da08d8c6aff.png">
+
+
 
 
 
